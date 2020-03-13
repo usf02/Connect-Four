@@ -1,0 +1,51 @@
+image: maven:3-jdk-13
+
+variables:
+  MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+
+cache:
+  paths:
+    - .m2/repository/
+    - target/
+
+stages:
+  - build
+  - test
+  - report
+  - deploy
+  - pages
+
+build:
+  stage: build
+  script:
+    - mvn $MAVEN_CLI_OPTS compile
+
+test:
+  stage: test
+  script:
+    - mvn $MAVEN_CLI_OPTS test
+
+report:
+  stage: report
+  script:
+    - mvn MAVEN_CLI_OPTS site
+
+deploy:
+  stage: report
+  script:
+    - mvn MAVEN_CLI_OPTS package
+  artifacts:
+    paths:
+      - ./target/2020-prokurs-v1.0.jar
+
+pages:
+  stage: pages
+  dependencies:
+    - report
+  script:
+    - mv ./target/site ./target/public
+    - mv ./target/public .
+  artifacts:
+    paths:
+      - public
