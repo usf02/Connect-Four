@@ -44,6 +44,7 @@ pages:
   dependencies:
     - report
   script:
+    - mvn $MAVEN_CLI_OPTS site
     - mv ./target/site ./target/public
     - mv ./target/public .
   artifacts:
