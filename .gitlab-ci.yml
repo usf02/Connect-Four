@@ -2,7 +2,7 @@ image: maven:3-jdk-13
 
 variables:
   MAVEN_CLI_OPTS: "--batch-mode clean"
-  MAVEN_OPTS: "-Dmaven.repo.local=~/.m2/repository"
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
 
 cache:
   paths:
@@ -29,12 +29,12 @@ test:
 report:
   stage: report
   script:
-    - mvn MAVEN_CLI_OPTS site
+    - mvn $MAVEN_CLI_OPTS site
 
 deploy:
-  stage: report
+  stage: deploy
   script:
-    - mvn MAVEN_CLI_OPTS package
+    - mvn $MAVEN_CLI_OPTS package
   artifacts:
     paths:
       - ./target/2020-prokurs-v1.0.jar
