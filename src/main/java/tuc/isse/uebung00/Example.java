@@ -1,4 +1,4 @@
-package tuc.isse.example;
+package tuc.isse.uebung00;
 
 public class Example {
     public static int addition(int x, int y) {

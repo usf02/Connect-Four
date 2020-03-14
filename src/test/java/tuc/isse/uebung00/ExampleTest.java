@@ -1,4 +1,4 @@
-package tuc.isse.example;
+package tuc.isse.uebung00;
 
 import org.junit.Test;
 

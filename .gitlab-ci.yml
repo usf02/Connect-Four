@@ -9,15 +9,18 @@ cache:
     - .m2/repository/
     - target/
 
+before_script:
+  - mvn $MAVEN_CLI_OPTS compile
+
 stages:
   - build
   - test
   - report
-  - deploy
   - pages
 
 build:
   stage: build
+  before_script: []
   script:
     - mvn $MAVEN_CLI_OPTS compile
 
@@ -30,14 +33,6 @@ report:
   stage: report
   script:
     - mvn $MAVEN_CLI_OPTS site
-
-deploy:
-  stage: deploy
-  script:
-    - mvn $MAVEN_CLI_OPTS package
-  artifacts:
-    paths:
-      - ./target/2020-prokurs-v1.0.jar
 
 pages:
   stage: pages
