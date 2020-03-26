@@ -7,20 +7,14 @@ variables:
 cache:
   paths:
     - .m2/repository/
-    - target/
-
-before_script:
-  - mvn $MAVEN_CLI_OPTS compile
 
 stages:
   - build
   - test
-  - report
   - pages
 
 build:
   stage: build
-  before_script: []
   script:
     - mvn $MAVEN_CLI_OPTS compile
 
@@ -29,15 +23,9 @@ test:
   script:
     - mvn $MAVEN_CLI_OPTS test
 
-report:
-  stage: report
-  script:
-    - mvn $MAVEN_CLI_OPTS site
 
 pages:
   stage: pages
-  dependencies:
-    - report
   script:
     - mvn $MAVEN_CLI_OPTS site
     - mv ./target/site ./target/public
@@ -45,3 +33,5 @@ pages:
   artifacts:
     paths:
       - public
+  only:
+    - master
