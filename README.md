@@ -3,7 +3,7 @@
 [![jdk](https://badgen.net/badge/Java%20SE%20Development%20Kit/14/green)](https://adoptopenjdk.net/?variant=openjdk14&jvmVariant=hotspot)
 [![Eclipse](https://badgen.net/badge/Eclipse%20IDE/03/green)](https://www.eclipse.org/downloads/)
 [![git](https://badgen.net/badge/git/win/green)](https://git-scm.com/download/win)
-[![JavaDoc](https://badgen.net/badge/JavaDoc/win/green)](https://www.oracle.com/java/technologies/javase-jdk14-doc-downloads.html)
+[![JavaDoc](https://badgen.net/badge/JavaDoc/green)](https://www.oracle.com/java/technologies/javase-jdk14-doc-downloads.html)
 
 # Requirement
 - Install the Java Development Kit v14 from this [link](https://adoptopenjdk.net/?variant=openjdk14&jvmVariant=hotspot)
