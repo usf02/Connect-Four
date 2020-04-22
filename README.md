@@ -10,4 +10,4 @@
 - Install the git for windows from this [link](https://git-scm.com/download/win)
 
 # How To Use
-Bitte lesen Sie (übung 01)
+Bitte lesen Sie (übung_01)
