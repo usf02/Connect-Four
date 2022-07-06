@@ -17,6 +17,7 @@ package tuc.isse.projekt;
  */
 
 public abstract class GameObject {
+    public enum Winner{RED, YELLOW, NONE};
     
     //Abstrakte Methode ohne Körper, wandelt den Inhalt der Klasse zu einer String um.
     public abstract String toString();

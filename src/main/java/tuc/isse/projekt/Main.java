@@ -1,5 +1,7 @@
 package tuc.isse.projekt;
 
+import tuc.isse.projekt.GameObject.Winner;
+import tuc.isse.projekt.Token.Color;
 /*
 * yf69@tu-clausthal.de
 * Vorname: Youssef
@@ -15,24 +17,28 @@ package tuc.isse.projekt;
  * @author Ghiath Al Akad
  */
 
-import tuc.isse.projekt.Token.Color;
-
 public class Main {
     public static void main(String[] args) throws Exception {
-        Bord bord1 = new Bord();
-        bord1.dropToken(Color.RED, 6);
-        bord1.dropToken(Color.RED, 6);
-        bord1.dropToken(Color.RED, 6);
-        bord1.dropToken(Color.YELLOW, 6);
-        bord1.dropToken(Color.YELLOW, 5);
-        bord1.dropToken(Color.RED, 5);
-        bord1.dropToken(Color.YELLOW, 4);
-        bord1.dropToken(Color.YELLOW, 4);
-        bord1.dropToken(Color.RED, 4);
-        bord1.dropToken(Color.YELLOW, 3);
-        bord1.dropToken(Color.YELLOW, 2);
-        bord1.dropToken(Color.RED, 2);
-        System.out.println(bord1);
+        // Hier wird nur getestet.
+        Board board = new Board();
+        board.dropToken(Color.YELLOW, 6);
+        board.dropToken(Color.YELLOW, 6);
+        board.dropToken(Color.YELLOW, 6);
+        board.dropToken(Color.YELLOW, 5);
+        board.dropToken(Color.RED, 5);
+        board.dropToken(Color.YELLOW, 4);
+        board.dropToken(Color.RED, 4);
+        board.dropToken(Color.RED, 4);
+        board.dropToken(Color.RED, 4);
+        board.dropToken(Color.RED, 4);
+        board.dropToken(Color.RED, 3);
+        board.dropToken(Color.YELLOW, 2);
+        board.dropToken(Color.RED, 2);
+        board.dropToken(Color.RED, 1);
+        board.dropToken(Color.YELLOW, 0);
+        System.out.println(board);
+
+        board.testVictory();
     }
 
 }
