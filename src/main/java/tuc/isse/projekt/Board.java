@@ -1,5 +1,7 @@
 package tuc.isse.projekt;
 
+import java.util.ArrayList;
+
 import tuc.isse.projekt.Token.Color;
 
 /*
@@ -23,6 +25,8 @@ class Board extends GameObject {
     public final int rows = 6;
     public final int columns = 7;
     public Cell[][] cells;
+    ArrayList<Token> red = new ArrayList<Token>(21);
+    ArrayList<Token> yellow = new ArrayList<Token>(21);
 
     // Konstruktor
     public Board() {
@@ -31,6 +35,38 @@ class Board extends GameObject {
             for (int j = 0; j < columns; j++) {
                 cells[i][j] = new Cell();
             }
+        }
+
+        for (int i = 0; i < 21; i++) {
+            red.add(new Token(Color.RED));
+        }
+        for (int i = 0; i < 21; i++) {
+            yellow.add(new Token(Color.YELLOW));
+        }
+    }
+
+    public Token getToken(Color color) {
+        Token token;
+
+        if (color == Color.RED) {
+            token = red.remove(red.size() - 1); 
+        } else {
+            token = yellow.remove(yellow.size() - 1);
+        }
+        return token;
+    }
+
+    public boolean hasToken(Color color) {
+        if (color == Color.RED) {
+            if (red.isEmpty()) {
+                return false;
+            }
+            return true;
+        } else {
+            if (yellow.isEmpty()) {
+                return false;
+            }
+            return true;
         }
     }
 
@@ -46,14 +82,18 @@ class Board extends GameObject {
 
     // Diese Methode setzt ein Spielstein von der gewählten Farbe in der untersten freien Zelle einer gegebenen Spalte.
     // Ausnahme ist eine Spalte ohne Freiplatz
-    public void dropToken(Color color, int columnIndex) throws ColumnFullException {
+    public void dropToken(Token token, int columnIndex) throws ColumnFullException, IllegalMoveException {
+        if (testVictory() != null) {
+            throw new IllegalMoveException();
+        }
+
         if (!canDrop(columnIndex)) {
             throw new ColumnFullException();
         } 
 
         for (int n = rows - 1; n >= 0; n--) {
             if (cells[n][columnIndex].getAktuelleToken() == null) {
-                cells[n][columnIndex].setAktuelleToken(new Token(color));
+                cells[n][columnIndex].setAktuelleToken(token);
                 break;
             }
         }
@@ -158,17 +198,39 @@ class Board extends GameObject {
         return false;
     }
 
+    private Boolean isTie() {
+        int ct = 0;
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                if (cells[i][j].getAktuelleToken() != null) {
+                    ct++;
+                }
+            }
+        }
+
+        if (yellow.isEmpty() && red.isEmpty() && ct == 42) {
+            return true;
+        }
+        return false;
+    }
+
     // Prüft alle drei Siegbedingungen und gibt den Sieger mithilfe von dem Enum "Winner" zurück.
     public Winner testVictory() {
-        if (isColumnVictory(Color.RED) || isRowVictory(Color.RED) || isDiagonalVictory(Color.RED)) {
+        boolean redWin = isColumnVictory(Color.RED) || isRowVictory(Color.RED) || isDiagonalVictory(Color.RED);
+        boolean yellowWin = isColumnVictory(Color.YELLOW) || isRowVictory(Color.YELLOW) || isDiagonalVictory(Color.YELLOW);
+
+        if (redWin) {
             System.out.println("Red Wins!");
             return Winner.RED;
-        } else if (isColumnVictory(Color.YELLOW) || isRowVictory(Color.YELLOW) || isDiagonalVictory(Color.YELLOW) ) {
+        } else if (yellowWin) {
             System.out.println("Yellow Wins!");
             return Winner.YELLOW;
-        }
-        System.out.println("Draw!");
-        return Winner.NONE;
+        } else if (isTie()) {
+            System.out.println("Draw!");
+            return Winner.TIE;
+        } 
+        return null;
     }
         
     
