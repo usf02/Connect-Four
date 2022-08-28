@@ -1,4 +1,4 @@
-package tuc.isse.projekt;
+package tuc.isse.projekt.model;
 
 /*
 * yf69@tu-clausthal.de
@@ -15,7 +15,7 @@ package tuc.isse.projekt;
  * @author Ghiath Al Akad
  */
 
-class Cell extends GameObject {
+public class Cell extends GameObject {
 
     private Token aktuelleToken;
 

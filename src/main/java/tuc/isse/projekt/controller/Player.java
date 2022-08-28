@@ -1,8 +1,9 @@
-package tuc.isse.projekt;
+package tuc.isse.projekt.controller;
 
 import java.io.IOException;
 
-import tuc.isse.projekt.Token.Color;
+import tuc.isse.projekt.model.Board;
+import tuc.isse.projekt.model.Token.Color;
 
 public abstract class Player {
     Color color;

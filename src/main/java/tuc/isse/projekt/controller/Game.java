@@ -1,6 +1,8 @@
-package tuc.isse.projekt;
+package tuc.isse.projekt.controller;
 
 import java.io.IOException;
+
+import tuc.isse.projekt.model.Board;
 
 public abstract class Game {
     Board board;

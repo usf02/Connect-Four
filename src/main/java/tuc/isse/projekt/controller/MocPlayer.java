@@ -1,6 +1,7 @@
-package tuc.isse.projekt;
+package tuc.isse.projekt.controller;
 
-import tuc.isse.projekt.Token.Color;
+import tuc.isse.projekt.model.Board;
+import tuc.isse.projekt.model.Token.Color;
 
 public class MocPlayer extends Player{
     int move;

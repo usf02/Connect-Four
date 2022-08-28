@@ -3,8 +3,11 @@ package tuc.isse.projekt;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
-import tuc.isse.projekt.GameObject.Winner;
-import tuc.isse.projekt.Token.Color;
+import tuc.isse.projekt.controller.ColumnFullException;
+import tuc.isse.projekt.controller.IllegalMoveException;
+import tuc.isse.projekt.model.Board;
+import tuc.isse.projekt.model.GameObject.Winner;
+import tuc.isse.projekt.model.Token.Color;
 
 // Die Brette werden mit den gegebenen Spielsteine erstellt und mit der erwarteten Ausgabe (String s) verglichen
 // Dazu werden die Siegbedingungen noch überprüft.

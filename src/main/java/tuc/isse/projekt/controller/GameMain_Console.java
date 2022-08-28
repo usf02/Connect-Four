@@ -1,12 +1,13 @@
-package tuc.isse.projekt;
+package tuc.isse.projekt.controller;
 
 import java.io.IOException;
 
-import tuc.isse.projekt.Token.Color;
+import tuc.isse.projekt.model.ObservableBoard;
+import tuc.isse.projekt.model.Token.Color;
 
 public class GameMain_Console {
     public static void main(String[] args) throws NumberFormatException, ColumnFullException, IllegalMoveException, IOException {
-        Board board = new Board();
+        ObservableBoard board = new ObservableBoard();
         Player player1 = new ConsolePlayer(Color.RED, board);
         Player player2 = new ConsolePlayer(Color.YELLOW, board);
 

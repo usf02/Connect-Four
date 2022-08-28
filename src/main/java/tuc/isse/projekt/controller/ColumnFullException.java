@@ -1,4 +1,4 @@
-package tuc.isse.projekt;
+package tuc.isse.projekt.controller;
 
 /*
 * yf69@tu-clausthal.de

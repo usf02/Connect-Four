@@ -1,7 +1,9 @@
-package tuc.isse.projekt;
+package tuc.isse.projekt.controller;
 
 import java.io.IOException;
 import java.util.Random;
+
+import tuc.isse.projekt.model.Board;
 
 public class ConsoleGame extends Game{
 

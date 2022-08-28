@@ -1,15 +1,7 @@
 package tuc.isse.projekt;
 
-import tuc.isse.projekt.Token.Color;
-/*
-* yf69@tu-clausthal.de
-* Vorname: Youssef
-* Nachname: Fayed
-*
-* ghiath.al.akad@tu-clausthal.de
-* Vorname: Ghiath
-* Nachname: Al Akad
-*/
+import tuc.isse.projekt.model.Board;
+import tuc.isse.projekt.model.Token.Color;
 
 /**
  * @author Youssef Fayed

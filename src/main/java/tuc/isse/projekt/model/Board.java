@@ -1,8 +1,10 @@
-package tuc.isse.projekt;
+package tuc.isse.projekt.model;
 
 import java.util.ArrayList;
 
-import tuc.isse.projekt.Token.Color;
+import tuc.isse.projekt.controller.ColumnFullException;
+import tuc.isse.projekt.controller.IllegalMoveException;
+import tuc.isse.projekt.model.Token.Color;
 
 /*
 * yf69@tu-clausthal.de
@@ -19,7 +21,7 @@ import tuc.isse.projekt.Token.Color;
  * @author Ghiath Al Akad
  */
 
-class Board extends GameObject {
+public class Board extends GameObject {
 
     // Erstellen des Zwei-dimensionalen Arrays (das Brett)
     public final int rows = 6;
@@ -98,6 +100,16 @@ class Board extends GameObject {
             }
         }
         
+    }
+
+    public Color getTokenColor(int row, int column) {
+      Color color = cells[row][column].getAktuelleToken().getColor();
+
+      if (color == Color.RED) {
+        return Color.RED;
+      } else if (color == Color.YELLOW) {
+        return Color.YELLOW;
+      } else {return null;}
     }
 
     // Prüft durch Umwandlung zu Strings, ob vier Steine der angegebene Farbe in einer Reihe stehen.

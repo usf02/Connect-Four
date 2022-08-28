@@ -1,4 +1,4 @@
-package tuc.isse.projekt;
+package tuc.isse.projekt.model;
 
 /*
 * yf69@tu-clausthal.de

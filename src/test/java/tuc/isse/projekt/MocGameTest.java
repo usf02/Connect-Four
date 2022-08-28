@@ -6,10 +6,19 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import tuc.isse.projekt.GameObject.Winner;
-import tuc.isse.projekt.Token.Color;
+import tuc.isse.projekt.controller.ColumnFullException;
+import tuc.isse.projekt.controller.ConsoleGame;
+import tuc.isse.projekt.controller.Game;
+import tuc.isse.projekt.controller.IllegalMoveException;
+import tuc.isse.projekt.controller.MocPlayer;
+import tuc.isse.projekt.controller.Player;
+import tuc.isse.projekt.model.Board;
+import tuc.isse.projekt.model.BoardObserver;
+import tuc.isse.projekt.model.ObservableBoard;
+import tuc.isse.projekt.model.GameObject.Winner;
+import tuc.isse.projekt.model.Token.Color;
 
-public class MocGameTest {
+public class MocGameTest implements BoardObserver{
     @Test
     public void testDoGame() throws ColumnFullException, IllegalMoveException, NumberFormatException, IOException {
         Board board = new Board();
@@ -20,5 +29,18 @@ public class MocGameTest {
         board.toString();
 
         assertEquals(Winner.RED, board.testVictory());
+    }
+
+    @Override
+    public void update(ObservableBoard board) {
+
+      String s = "[ ][ ][ ][ ][ ][ ][ ]\n"
+                + "[ ][ ][ ][ ][ ][ ][ ]\n"
+                + "[ ][ ][ ][ ][ ][ ][ ]\n"
+                + "[ ][ ][ ][ ][ ][ ][ ]\n"
+                + "[ ][ ][ ][ ][ ][ ][ ]\n"
+                + "[ ][ ][O][ ][ ][ ][ ]\n";
+
+      assertEquals(s, board.toString());
     }
 }
