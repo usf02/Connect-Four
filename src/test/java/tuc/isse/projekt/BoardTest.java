@@ -1,6 +1,9 @@
 package tuc.isse.projekt;
 
 import static org.junit.Assert.assertEquals;
+
+import java.io.IOException;
+
 import org.junit.Test;
 
 import tuc.isse.projekt.controller.ColumnFullException;
@@ -14,7 +17,7 @@ import tuc.isse.projekt.model.Token.Color;
 
 public class BoardTest {
     @Test
-    public void testToString() throws ColumnFullException, IllegalMoveException {
+    public void testToString() throws ColumnFullException, IllegalMoveException, NumberFormatException, IOException {
         Board board = new Board();
         board.dropToken(board.getToken(Color.RED), 6);
         board.dropToken(board.getToken(Color.RED), 6);
@@ -42,7 +45,7 @@ public class BoardTest {
     }
 
     @Test
-    public void testToString2() throws ColumnFullException, IllegalMoveException {
+    public void testToString2() throws ColumnFullException, IllegalMoveException, NumberFormatException, IOException {
         Board board = new Board();
         board.dropToken(board.getToken(Color.YELLOW), 6);
         board.dropToken(board.getToken(Color.YELLOW), 6);
@@ -73,7 +76,7 @@ public class BoardTest {
     }
 
     @Test
-    public void testToString3() throws ColumnFullException, IllegalMoveException {
+    public void testToString3() throws ColumnFullException, IllegalMoveException, NumberFormatException, IOException {
         Board board = new Board();
         board.dropToken(board.getToken(Color.RED), 6);
         board.dropToken(board.getToken(Color.RED), 6);
@@ -101,7 +104,7 @@ public class BoardTest {
     }
 
     @Test
-    public void testToString4() throws ColumnFullException, IllegalMoveException {
+    public void testToString4() throws ColumnFullException, IllegalMoveException, NumberFormatException, IOException {
         Board board = new Board();
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {

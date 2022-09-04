@@ -1,5 +1,6 @@
 package tuc.isse.projekt.model;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import tuc.isse.projekt.controller.ColumnFullException;
@@ -84,7 +85,7 @@ public class Board extends GameObject {
 
     // Diese Methode setzt ein Spielstein von der gewählten Farbe in der untersten freien Zelle einer gegebenen Spalte.
     // Ausnahme ist eine Spalte ohne Freiplatz
-    public void dropToken(Token token, int columnIndex) throws ColumnFullException, IllegalMoveException {
+    public void dropToken(Token token, int columnIndex) throws ColumnFullException, IllegalMoveException, NumberFormatException, IOException {
         if (testVictory() != null) {
             throw new IllegalMoveException();
         }
@@ -103,13 +104,14 @@ public class Board extends GameObject {
     }
 
     public Color getTokenColor(int row, int column) {
+      if (cells[row][column].getAktuelleToken() == null) {
+        return null;
+      }
+      
       Color color = cells[row][column].getAktuelleToken().getColor();
-
       if (color == Color.RED) {
         return Color.RED;
-      } else if (color == Color.YELLOW) {
-        return Color.YELLOW;
-      } else {return null;}
+      } else {return Color.YELLOW;}
     }
 
     // Prüft durch Umwandlung zu Strings, ob vier Steine der angegebene Farbe in einer Reihe stehen.

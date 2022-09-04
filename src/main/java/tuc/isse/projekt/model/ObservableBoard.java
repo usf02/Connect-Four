@@ -1,5 +1,6 @@
 package tuc.isse.projekt.model;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import tuc.isse.projekt.controller.ColumnFullException;
@@ -26,7 +27,7 @@ public class ObservableBoard extends Board{
     }
   }
 
-  public void dropToken(Token token, int columnIndex) throws ColumnFullException, IllegalMoveException {
+  public void dropToken(Token token, int columnIndex) throws ColumnFullException, IllegalMoveException, NumberFormatException, IOException {
     super.dropToken(token, columnIndex);
     notifyObserver();
   }

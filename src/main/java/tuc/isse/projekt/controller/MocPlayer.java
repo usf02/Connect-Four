@@ -1,17 +1,19 @@
 package tuc.isse.projekt.controller;
 
-import tuc.isse.projekt.model.Board;
+import java.io.IOException;
+
+import tuc.isse.projekt.model.ObservableBoard;
 import tuc.isse.projekt.model.Token.Color;
 
 public class MocPlayer extends Player{
     int move;
 
-    public MocPlayer(Color color, Board board, int move) {
+    public MocPlayer(Color color, ObservableBoard board, int move) {
         super(color, board);
         this.move = move;
     }
 
-    public void doTurn() throws ColumnFullException, IllegalMoveException {
+    public void doTurn() throws NumberFormatException, ColumnFullException, IllegalMoveException, IOException {
         super.doDrop(move);
     }
     
