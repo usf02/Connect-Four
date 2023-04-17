@@ -1,8 +1,7 @@
-package tuc.isse.projekt;
+package tuc.isse.projekt.view;
 
 import tuc.isse.projekt.model.ObservableBoard;
 import tuc.isse.projekt.model.Token.Color;
-import tuc.isse.projekt.view.ConnectFourFrame;
 
 /**
  * @author Youssef Fayed
