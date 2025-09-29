@@ -1,10 +1,12 @@
 ## Maven
 # Build
+out/
 target/
-*.jar
+#*.jar
 *.war
 *.ear
 *.class
+manifest.txt
 
 # eclipse specific git ignore
 *.pydevproject

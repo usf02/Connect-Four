@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Random;
 
 import tuc.isse.projekt.model.Board;
+import tuc.isse.projekt.model.GameObject.Winner;
 
 public class ConsoleGame extends Game{
 
@@ -23,11 +24,11 @@ public class ConsoleGame extends Game{
 
         System.out.println(board);
 
-        while (board.testVictory() == null) {
+        while (board.testVictory() == Winner.ONGOING) {
             if (current == player1) {
-                System.out.println("Spieler X, was ist dein nächster Zug?");
+                System.out.println("Player X, What's your next move?");
             } else {
-                System.out.println("Spieler O, was ist dein nächster Zug?");
+                System.out.println("Player O, What's your next move?");
             }
             this.current.doTurn();
 

@@ -86,7 +86,7 @@ public class Board extends GameObject {
     // Diese Methode setzt ein Spielstein von der gewählten Farbe in der untersten freien Zelle einer gegebenen Spalte.
     // Ausnahme ist eine Spalte ohne Freiplatz
     public void dropToken(Token token, int columnIndex) throws ColumnFullException, IllegalMoveException, NumberFormatException, IOException {
-        if (testVictory() != null) {
+        if (testVictory() != Winner.ONGOING) {
             throw new IllegalMoveException();
         }
 
@@ -244,7 +244,7 @@ public class Board extends GameObject {
             System.out.println("Draw!");
             return Winner.TIE;
         } 
-        return null;
+        return Winner.ONGOING;
     }
         
     

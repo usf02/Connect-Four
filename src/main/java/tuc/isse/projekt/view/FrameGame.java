@@ -11,6 +11,7 @@ import tuc.isse.projekt.controller.IllegalMoveException;
 import tuc.isse.projekt.controller.Player;
 import tuc.isse.projekt.model.BoardObserver;
 import tuc.isse.projekt.model.ObservableBoard;
+import tuc.isse.projekt.model.GameObject.Winner;
 
 public class FrameGame extends Game implements BoardObserver{
   ConnectFourFrame frame;
@@ -35,7 +36,7 @@ public class FrameGame extends Game implements BoardObserver{
   public void update(ObservableBoard board)  {
     frame.update(board);
 
-    if (board.testVictory() == null) {
+    if (board.testVictory() == Winner.ONGOING) {
       swapPlayer();
       askTurn();
       try {
@@ -47,7 +48,6 @@ public class FrameGame extends Game implements BoardObserver{
     } else {
       frame.deactivateButtons();
     }
-
     switch (board.testVictory()) {
       case RED:
         JOptionPane.showInternalMessageDialog(null, "Red Wins!", "Game Ended", 

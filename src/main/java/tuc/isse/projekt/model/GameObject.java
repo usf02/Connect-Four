@@ -17,7 +17,7 @@ package tuc.isse.projekt.model;
  */
 
 public abstract class GameObject {
-    public enum Winner{RED, YELLOW, TIE};
+    public enum Winner{RED, YELLOW, TIE, ONGOING};
     
     //Abstrakte Methode ohne Körper, wandelt den Inhalt der Klasse zu einer String um.
     public abstract String toString();

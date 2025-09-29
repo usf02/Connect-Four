@@ -81,6 +81,8 @@ public class ConnectFourFrame implements BoardObserver{
   public void update(ObservableBoard board) {
     canvas.revalidate();
     canvas.repaint();
+    btnPanel.revalidate();
+    btnPanel.repaint();
   }
   
 }
